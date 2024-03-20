@@ -6,7 +6,8 @@ This is sample spring boot project
    `docker-compose up`
 4. Wait until the project is up and running 
 5. Import the above collection into your postman and use
-https://api.postman.com/collections/15114630-5498502d-b607-4a41-aa48-a34052444e53?access_key=PMAT-01HSB7Q28R5AP0KYEYVZVG6MAZ
+
+
    1. Create User API to create user.
    2. Before any API call you will have to create jwt token using authenticate api and use it into header of every API.
    set postman host Url to Host Url: `http://127.0.0.1:8080`
