@@ -1,0 +1,113 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: pesto
+      MYSQL_USER: ram
+      MYSQL_PASSWORD: 123456
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    networks:
+      - pesto
+
+  zipkin:
+      image: openzipkin/zipkin
+      container_name: zipkin
+      ports:
+        - 9411:9411
+      networks:
+        - pesto
+
+  service-reg:
+    image: shriramchoubey/service-reg:latest
+    container_name: service-reg
+    ports:
+      - 8761:8761
+    networks:
+      - pesto
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - EUREKA_CLIENT_SERVICE_DEFAULTZONE=http://service-reg:8761/eureka
+
+  config-server:
+    image: shriramchoubey/config-server:latest
+    container_name: config-server
+    ports:
+      - 8081:8081
+    depends_on:
+      - service-reg
+    networks:
+      - pesto
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - EUREKA_CLIENT_SERVICE_DEFAULTZONE=http://service-reg:8761/eureka
+
+  gateway:
+      image: shriramchoubey/gateway:latest
+      container_name: gateway
+      ports:
+        - 8080:8080
+      depends_on:
+        - service-reg
+#        - config-server
+      networks:
+        - pesto
+      environment:
+        - SPRING_PROFILES_ACTIVE=docker
+        - EUREKA_CLIENT_SERVICE_DEFAULTZONE=http://service-reg:8761/eureka
+##
+#
+  authentication-service:
+      image: shriramchoubey/authentication-service:latest
+      container_name: authentication-service
+      ports:
+        - 8082:8082
+      depends_on:
+        - service-reg
+#        - config-server
+        - mysql
+      networks:
+        - pesto
+      environment:
+        - SPRING_PROFILES_ACTIVE=docker
+        - EUREKA_CLIENT_SERVICE_DEFAULTZONE=http://service-reg:8761/eureka
+#
+  product-management-service:
+      image: shriramchoubey/product-management-service:latest
+      container_name: product-management-service
+      ports:
+        - 8083:8083
+      depends_on:
+        - service-reg
+#        - config-server
+        - mysql
+      networks:
+        - pesto
+      environment:
+        - SPRING_PROFILES_ACTIVE=docker
+        - EUREKA_CLIENT_SERVICE_DEFAULTZONE=http://service-reg:8761/eureka
+#
+  order-management-service:
+    image: shriramchoubey/order-management-service:latest
+    container_name: order-management-service
+    ports:
+      - 8084:8084
+    depends_on:
+      - service-reg
+#      - config-server
+      - mysql
+    networks:
+      - pesto
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - EUREKA_CLIENT_SERVICE_DEFAULTZONE=http://service-reg:8761/eureka
+
+networks:
+  pesto:
+    driver: bridge

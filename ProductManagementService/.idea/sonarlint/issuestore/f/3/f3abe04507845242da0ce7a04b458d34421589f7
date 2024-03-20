@@ -1,0 +1,9 @@
+
+”
+java:S22936"YReplace the type specification in this constructor call with the diamond operator ("<>").(ιωθ~J$a513089d-e181-4499-a6b9-1bd195c48fc6
+”
+java:S2293="YReplace the type specification in this constructor call with the diamond operator ("<>").(ιωθ~J$a375e519-792f-4dfd-8d2e-80711bd361fe
+•	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(χυ·J$ce131139-f3ed-4ad4-9282-3bd81f7abd50
+‰	java:S100:"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ΝΨΌ“J$ecc8db43-fd70-42c8-af04-6d752b0fd679
+t
+java:S1611E"3Remove the parentheses around the "error" parameter(ύ£—ΤϊÿÿÿÿJ$238c4e90-8971-467c-8057-01adeab9b99a

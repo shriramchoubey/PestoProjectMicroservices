@@ -1,0 +1,15 @@
+com/example/pesto/productManagement/service/ProductService.class
+com/example/pesto/productManagement/dto/request/UpdateProductRequestDTO.class
+com/example/pesto/productManagement/dto/request/DeleteProductRequestDTO.class
+com/example/pesto/productManagement/dto/response/ViewProductDetailsResponsDTO.class
+com/example/pesto/productManagement/dto/response/UpdateProductResponseDTO$UpdateProductResponseDTOBuilder.class
+com/example/pesto/productManagement/dto/response/CreateProductResponseDTO$CreateProductResponseDTOBuilder.class
+com/example/pesto/productManagement/dto/response/GetProductsResponseDTO$GetProductsResponseDTOBuilder.class
+com/example/pesto/productManagement/dto/response/DeleteProductResponseDTO$DeleteProductResponseDTOBuilder.class
+com/example/pesto/productManagement/dto/request/CreateProductRequestDTO.class
+com/example/pesto/productManagement/dto/response/ViewProductDetailsResponsDTO$ViewProductDetailsResponsDTOBuilder.class
+com/example/pesto/productManagement/repository/ProductRepository.class
+com/example/pesto/productManagement/dto/response/DeleteProductResponseDTO.class
+com/example/pesto/productManagement/dto/response/GetProductsResponseDTO.class
+com/example/pesto/productManagement/dto/response/UpdateProductResponseDTO.class
+com/example/pesto/productManagement/dto/response/CreateProductResponseDTO.class
