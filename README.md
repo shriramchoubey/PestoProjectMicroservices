@@ -18,6 +18,21 @@ Zipkin Url: `http://localhost:9411/zipkin/`
 Eureka Url: `http://localhost:8761/`
 
 
+### Docker build images and push to docker-hub [creater use only]
+1. Build Image commands
+   `mvn spring-boot:build-image -Dspring-boot.build-image.imageName=shriramchoubey/service-reg:latest`
+   `mvn spring-boot:build-image -Dspring-boot.build-image.imageName=shriramchoubey/gateway:latest`
+   `mvn spring-boot:build-image -Dspring-boot.build-image.imageName=shriramchoubey/authentication-service:latest`
+   `mvn spring-boot:build-image -Dspring-boot.build-image.imageName=shriramchoubey/product-management-service:latest`
+   `mvn spring-boot:build-image -Dspring-boot.build-image.imageName=shriramchoubey/order-management-service:latest`
+
+2. Push Docker images to docker hub
+   `docker push shriramchoubey/service-reg`
+   `docker push shriramchoubey/gateway`
+   `docker push shriramchoubey/authentication-service`
+   `docker push shriramchoubey/product-management-service`
+   `docker push shriramchoubey/order-management-service`
+
 # Opening Project into your intellij
 
 First download java 17: https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
@@ -29,15 +44,22 @@ Use this java in run configuration to run the project.
 3. Import next microservice Gateway, Run it
 4. Import next microservice AuthenticationService, Run it
 5. Import next microservice ProductManagementService, Run it
-6. Import next Microservice OrderManagementService, Run it
+6. Import next Microservice OrderManagementService, Run it 
+7. PostMan Collection Link: https://www.postman.com/payload-saganist-15979257/workspace/shriram-public-workspace/collection/15114630-82391ca9-bd8b-4449-9b54-324c3fc662ca?action=share&creator=15114630&active-environment=15114630-47734e7e-8720-40e3-9611-7b5d0a444ae1
+8. Host Url to set in post man: http://127.0.0.1:8080
+9.    Zipkin Url: `http://localhost:9411/zipkin/`
+      Eureka Url: `http://localhost:8761/`
+10. Running local env mysql and zipkin
+   use command - `docker-compose -f docker-compose-sql-zipkin.yml up`
 
+## Points Covered
 
-# Requirements covered
 1. Microservice architecture: AuthenticationService, ProductManagementService, OrderManagementService. Other microservices: ServiceReg -"Service Registry", Gateway-"Gateway to route to all other microservices from single exposed Url"
 2. Can create User with role `ADMIN` | `USER`. Crud APIs for Product, and Orders
 2. Gateway authenticates each request Bearer token through AuthenticationService using http rest based inter process communication.
 3. Postman GetOrderDetails API, http rest based inter process communication between OrderManagementService and ProductManagementService.
 4. PostMan Collection Link: https://www.postman.com/payload-saganist-15979257/workspace/shriram-public-workspace/collection/15114630-82391ca9-bd8b-4449-9b54-324c3fc662ca?action=share&creator=15114630&active-environment=15114630-47734e7e-8720-40e3-9611-7b5d0a444ae1
+5. Host Url to set in post man: http://127.0.0.1:8080
 5. Only ADMIN user can add products and modify order status. -- role based access
 5. Normal USER can order and view all its orders, and cancel them.
 6. Optimistic Locking mechanism to prevent concurrent update of resources and maintain the itegrity... We can find their Unit test-cases in ProductManagementService, and OrderManagementService
