@@ -36,6 +36,7 @@ Use this java in run configuration to run the project.
 2. Can create User with role `ADMIN` | `USER`. Crud APIs for Product, and Orders
 2. Gateway authenticates each request Bearer token through AuthenticationService using http rest based inter process communication.
 3. Postman GetOrderDetails API, http rest based inter process communication between OrderManagementService and ProductManagementService.
+   `https://www.postman.com/payload-saganist-15979257/workspace/shriram-public-workspace/collection/15114630-82391ca9-bd8b-4449-9b54-324c3fc662ca?action=share&creator=15114630&active-environment=15114630-47734e7e-8720-40e3-9611-7b5d0a444ae1`
 4. Only ADMIN user can add products and modify order status. -- role based access
 5. Normal USER can order and view all its orders, and cancel them.
 6. Optimistic Locking mechanism to prevent concurrent update of resources and maintain the itegrity... We can find their Unit test-cases in ProductManagementService, and OrderManagementService
