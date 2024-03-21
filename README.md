@@ -19,7 +19,7 @@ Eureka Url: `http://localhost:8761/`
 
 It may take long time because of running 5 sevices together and configuring their connections service discovery (registry, gateway, db connections)
 keep an eye at Eureka Url: `http://localhost:8761/` and check if all other 4 services up in `Instances currently registered with Eureka` section of Eureka url
-set host url in postman and run APIs
+set host url in postman and run APIs, First run Create User API and then Authentication API
 
 
 ### Docker build images and push to docker-hub [creater use only]
