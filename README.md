@@ -1,4 +1,6 @@
 # PestoProject
+
+# Running project using docker
 This is sample spring boot project
 1. Clone this project
 2. If Docker is not present download from: https://www.docker.com/products/docker-desktop/
@@ -6,7 +8,6 @@ This is sample spring boot project
    `docker-compose up`
 4. Wait until the project is up and running 
 5. Import the above collection into your postman and use
-
 
    1. Create User API to create user.
    2. Before any API call you will have to create jwt token using authenticate api and use it into header of every API.
@@ -31,7 +32,7 @@ Use this java in run configuration to run the project.
 6. Import next Microservice OrderManagementService, Run it
 
 
-# Points Covered
+# Requirements covered
 1. Microservice architecture: AuthenticationService, ProductManagementService, OrderManagementService. Other microservices: ServiceReg -"Service Registry", Gateway-"Gateway to route to all other microservices from single exposed Url"
 2. Can create User with role `ADMIN` | `USER`. Crud APIs for Product, and Orders
 2. Gateway authenticates each request Bearer token through AuthenticationService using http rest based inter process communication.
