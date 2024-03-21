@@ -17,6 +17,10 @@ This is sample spring boot project
 Zipkin Url: `http://localhost:9411/zipkin/`
 Eureka Url: `http://localhost:8761/`
 
+It may take long time because of running 5 sevices together and configuring their connections service discovery (registry, gateway, db connections)
+keep an eye at Eureka Url: `http://localhost:8761/` and check if all other 4 services up in `Instances currently registered with Eureka` section of Eureka url
+set host url in postman and run APIs
+
 
 ### Docker build images and push to docker-hub [creater use only]
 1. Build Image commands
